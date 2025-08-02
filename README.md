@@ -38,4 +38,4 @@ It helps improve focus using the 25-5 Pomodoro technique, with automation, task 
 ```bash
 git clone https://github.com/Monajir/PomoDoro-App.git
 cd PomodoroFX
-- Open `Main.java` in your IDE or run with a JavaFX runner.
+- Open `MainApp.java` in your IDE or run with a JavaFX runner.
