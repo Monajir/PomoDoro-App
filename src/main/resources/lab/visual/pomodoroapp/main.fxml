@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="lab.visual.pomodoroapp.controller.MainController">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <ToggleButton fx:id="pomodoroBtn" text="Pomodoro" selected="true" onAction="#switchToPomodoro"/>
+            <ToggleButton fx:id="shortBreakBtn" text="Short Break" onAction="#switchToShortBreak"/>
+            <ToggleButton fx:id="longBreakBtn" text="Long Break" onAction="#switchToLongBreak"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <ToggleButton fx:id="themeToggle" text="☀️" onAction="#toggleTheme"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <StackPane maxWidth="220" maxHeight="88">
+                <Label fx:id="timerLabel" text="25:00" styleClass="timer-label"/>
+                <Button fx:id="settingsBtn" text="⋮" StackPane.alignment="TOP_RIGHT" onAction="#openSettingsDialog"
+                        styleClass="settings-btn">
+                    <tooltip>
+                        <Tooltip text="Change Pomodoro settings"/>
+                    </tooltip>
+                </Button>
+            </StackPane>
+
+            <HBox alignment="CENTER" spacing="10">
+                <Button fx:id="startBtn" text="Start" onAction="#startTimer"/>
+                <Button fx:id="pauseBtn" text="Pause" onAction="#pauseTimer"/>
+                <Button fx:id="resetBtn" text="Reset" onAction="#resetTimer"/>
+            </HBox>
+            <ProgressBar fx:id="progressBar" prefWidth="300"/>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox spacing="5">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Tasks" styleClass="section-label"/>
+            <HBox spacing="5">
+                <TextField fx:id="taskField" promptText="Add/Update a task..."/>
+                <TextField fx:id="estimatedPomodorosField" promptText="Est. Pomodoros" maxWidth="80"/>
+                <Button text="Add" onAction="#addTask"/>
+                <Button text="Update" onAction="#updateTask"/>
+                <Button text="Delete" onAction="#deleteTask"/>
+            </HBox>
+            <ListView fx:id="taskList"/>
+        </VBox>
+    </bottom>
+
+</BorderPane>
+
